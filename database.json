@@ -1,0 +1,2328 @@
+{
+  "progetto": "HEROES AND MONSTERS",
+  "versione_database": "1.0-beta",
+  "data": "2026-11-24",
+  "stato": "build beta: effetti codificati, collaudo non esaustivo",
+  "criterio": "Vita, Danno e testo derivano dalle immagini originali. Tipo di abilità è una classificazione tecnica provvisoria. Ricompense, bonus di classe e regole generali provengono dalle decisioni di progetto, non dalle immagini.",
+  "conteggi": {
+    "Guerrieri": 15,
+    "Maghi": 15,
+    "Ranger": 15,
+    "Druidi": 15,
+    "Base": 5,
+    "Intermedi": 5,
+    "Elite": 5
+  },
+  "regole_progetto": {
+    "risorse": [
+      "Ferro",
+      "Mana",
+      "Frecce",
+      "Pozioni"
+    ],
+    "risorse_casuali_inizio_turno": 2,
+    "carte_evento": false,
+    "costo_reclutamento": 2,
+    "punti_vittoria_necessari": 6,
+    "archetipi": {
+      "Guerrieri": {
+        "risorsa": "Ferro",
+        "nome_bonus": "Muro d’acciaio",
+        "bonus": "Con almeno 3 Guerrieri vivi, ogni Guerriero alleato subisce 1 Danno in meno dagli attacchi dei Mostri (minimo 0)."
+      },
+      "Maghi": {
+        "risorsa": "Mana",
+        "nome_bonus": "Potere arcano",
+        "bonus": "Con almeno 3 Maghi vivi, ogni Mago alleato che colpisce infligge +1 Danno."
+      },
+      "Ranger": {
+        "risorsa": "Frecce",
+        "nome_bonus": "Mira infallibile",
+        "bonus": "Con almeno 3 Ranger vivi, ogni Ranger ottiene +1 al risultato del dado d’attacco (massimo 6)."
+      },
+      "Druidi": {
+        "risorsa": "Pozioni",
+        "nome_bonus": "Rigenerazione naturale",
+        "bonus": "Con almeno 3 Druidi vivi, ogni Druido alleato recupera 1 Vita alla fine del round di combattimento."
+      }
+    },
+    "ricompense_mostri": {
+      "Base": {
+        "punti_vittoria": 1,
+        "risorse_casuali": 2
+      },
+      "Intermedi": {
+        "punti_vittoria": 2,
+        "risorse_casuali": 4
+      },
+      "Elite": {
+        "punti_vittoria": 3,
+        "risorse_casuali": 6
+      }
+    },
+    "affinita_mostri": {
+      "debolezza_danno": 1,
+      "resistenza_danno": -1,
+      "minimo_danno": 0,
+      "assegnazione": "fissa, casuale bilanciata"
+    },
+    "requisiti_impresa": {
+      "Base": 3,
+      "Intermedi": 4,
+      "Elite": 5
+    },
+    "difesa": "D6",
+    "limite_party": 8
+  },
+  "eroi": [
+    {
+      "id": "guerrieri_thorvik",
+      "tipo": "eroe",
+      "nome": "Thorvik",
+      "categoria": "Guerrieri",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_thorvik_abilita",
+        "nome": "Furia del Ferito",
+        "testo_stampato": "Quando Thorvik ha 3 Vita o meno, infligge +1 Danno con i propri attacchi.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Quando Thorvik ha 3 Vita o meno, infligge +1 Danno con i propri attacchi."
+      },
+      "immagine": "card_Guerrieri_Thorvik.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Thorvik.jpeg",
+        "sha256": "328c302e5a34f0e882587d439683debf5f4d62c4704a8dd1ebfb39a2f4200ffa",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Thorvik-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_kael",
+      "tipo": "eroe",
+      "nome": "Kael",
+      "categoria": "Guerrieri",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_kael_abilita",
+        "nome": "Rappresaglia",
+        "testo_stampato": "Una volta per turno, quando un’abilità avversaria danneggia un tuo Eroe, infliggi 1 Danno all’Eroe responsabile.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, quando un’abilità avversaria danneggia un tuo Eroe, infliggi 1 Danno all’Eroe responsabile."
+      },
+      "immagine": "card_Guerrieri_Kael.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Kael.jpeg",
+        "sha256": "78cdfd195d21ba78fcfd41f5e6580c3a225831a52a7c2887e31a9c945b88cd65",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Kael-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_gormak",
+      "tipo": "eroe",
+      "nome": "Gormak",
+      "categoria": "Guerrieri",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_gormak_abilita",
+        "nome": "Saccheggio",
+        "testo_stampato": "Durante la Fase Abilità, una volta per turno, Gormak può rubare 1 risorsa casuale a un avversario.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Durante la Fase Abilità, una volta per turno, Gormak può rubare 1 risorsa casuale a un avversario."
+      },
+      "immagine": "card_Guerrieri_Gormak.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Gormak.jpeg",
+        "sha256": "429771dc5ceb27e39c64cea1c95dbca02352aca5b73f76f9ebcf7d0e4e656cf2",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Gormak-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_tharos",
+      "tipo": "eroe",
+      "nome": "Tharos",
+      "categoria": "Guerrieri",
+      "vita_massima": 5,
+      "danno_base": 3,
+      "abilita": {
+        "id": "guerrieri_tharos_abilita",
+        "nome": "Colpo Disperato",
+        "testo_stampato": "Una volta per combattimento, prima del tiro: se colpisce, raddoppia il Danno; se fallisce, subisce +2 Danni. In caso di pareggio, nessun effetto.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, prima del tiro: se colpisce, raddoppia il Danno; se fallisce, subisce +2 Danni. In caso di pareggio, nessun effetto."
+      },
+      "immagine": "card_Guerrieri_Tharos.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Tharos.jpeg",
+        "sha256": "962c5f31e6b5cc405e6c6a13823441788a85b0e3550bcc40a673335c64424079",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Tharos-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_valdrik",
+      "tipo": "eroe",
+      "nome": "Valdrik",
+      "categoria": "Guerrieri",
+      "vita_massima": 7,
+      "danno_base": 1,
+      "abilita": {
+        "id": "guerrieri_valdrik_abilita",
+        "nome": "Sacrificio del Guardiano",
+        "testo_stampato": "Una volta per turno, quando un altro Eroe alleato sta per subire danni, Valdrik può subire al suo posto fino a 2 di quei danni.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, quando un altro Eroe alleato sta per subire danni, Valdrik può subire al suo posto fino a 2 di quei danni."
+      },
+      "immagine": "card_Guerrieri_Valdrik.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Valdrik.jpeg",
+        "sha256": "a11480042c999a0fd15af9814c0002ed5d25dd5dd47c11f9da630c8fa93f18ec",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Valdrik-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_kargan",
+      "tipo": "eroe",
+      "nome": "Kargan",
+      "categoria": "Guerrieri",
+      "vita_massima": 5,
+      "danno_base": 3,
+      "abilita": {
+        "id": "guerrieri_kargan_abilita",
+        "nome": "Furia del Vincitore",
+        "testo_stampato": "Quando Kargan infligge il colpo che elimina un Mostro, recupera 2 Vita, senza superare la sua Vita massima.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Quando Kargan infligge il colpo che elimina un Mostro, recupera 2 Vita, senza superare la sua Vita massima."
+      },
+      "immagine": "card_Guerrieri_Kargan.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Kargan.jpeg",
+        "sha256": "39a1db23e8d108782cd7d8b26ff9f89485d87d8ee1594d64b9d20728164fe648",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Kargan-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_helga",
+      "tipo": "eroe",
+      "nome": "Helga",
+      "categoria": "Guerrieri",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_helga_abilita",
+        "nome": "Benedizione della Battaglia",
+        "testo_stampato": "Una volta per combattimento, prima dei tiri di un round, puoi scegliere fino a 2 Eroi alleati, incluso te stessa. Gli Eroi scelti ottengono +1 Danno per quel round.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, prima dei tiri di un round, puoi scegliere fino a 2 Eroi alleati, incluso te stessa. Gli Eroi scelti ottengono +1 Danno per quel round."
+      },
+      "immagine": "card_Guerrieri_Helga.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Helga.jpeg",
+        "sha256": "47b26dd3ca380d8ab69180c6ad547454c5bcaf2b40969ba0eca181ad86ba65ee",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Helga-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_borgan",
+      "tipo": "eroe",
+      "nome": "Borgan",
+      "categoria": "Guerrieri",
+      "vita_massima": 7,
+      "danno_base": 1,
+      "abilita": {
+        "id": "guerrieri_borgan_abilita",
+        "nome": "Pelle d’Acciaio",
+        "testo_stampato": "La prima volta che subisce danni in ogni combattimento, li riduce di 1 (minimo 0).",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "La prima volta che subisce danni in ogni combattimento, li riduce di 1 (minimo 0)."
+      },
+      "immagine": "card_Guerrieri_Borgan.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Borgan.jpeg",
+        "sha256": "db1b7f641ac714a8ebdf0e44daa2223248c078b582f99c577c2df82b84d63302",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Borgan-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_varkos",
+      "tipo": "eroe",
+      "nome": "Varkos",
+      "categoria": "Guerrieri",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_varkos_abilita",
+        "nome": "Comandante di Ferro",
+        "testo_stampato": "Finché Varkos è vivo, tutti gli altri Guerrieri alleati ottengono +1 Danno.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Finché Varkos è vivo, tutti gli altri Guerrieri alleati ottengono +1 Danno."
+      },
+      "immagine": "card_Guerrieri_Varkos.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Varkos.jpeg",
+        "sha256": "34572e30efc7c1984d437c22b9b4382196e6a816d5674f0384c87c4ff8cf4da0",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Varkos-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_baldrek",
+      "tipo": "eroe",
+      "nome": "Baldrek",
+      "categoria": "Guerrieri",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_baldrek_abilita",
+        "nome": "Vendetta del Caduto",
+        "testo_stampato": "Ogni volta che un altro Eroe alleato muore durante un combattimento, Baldrek ottiene +1 Danno cumulativo fino alla fine dello scontro.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Ogni volta che un altro Eroe alleato muore durante un combattimento, Baldrek ottiene +1 Danno cumulativo fino alla fine dello scontro."
+      },
+      "immagine": "card_Guerrieri_Baldrek.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Baldrek.jpeg",
+        "sha256": "3abf380e68f68b27ec5b8488c742ece9b5406edb271239ee87fcda2b4a61027b",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Baldrek-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_durgan",
+      "tipo": "eroe",
+      "nome": "Durgan",
+      "categoria": "Guerrieri",
+      "vita_massima": 7,
+      "danno_base": 1,
+      "abilita": {
+        "id": "guerrieri_durgan_abilita",
+        "nome": "Pelle di Ferro",
+        "testo_stampato": "Durgan subisce 1 Danno in meno da qualsiasi fonte (minimo 0).",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Durgan subisce 1 Danno in meno da qualsiasi fonte (minimo 0)."
+      },
+      "immagine": "card_Guerrieri_Durgan.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Durgan.jpeg",
+        "sha256": "0e39fedec5cd3ec598051a34a3460393ae3d9a2dbad3c162e92fb76e05cc6be1",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Durgan-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_edrik",
+      "tipo": "eroe",
+      "nome": "Edrik",
+      "categoria": "Guerrieri",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_edrik_abilita",
+        "nome": "Taglia sulla testa",
+        "testo_stampato": "Una volta per partita, assegna una Taglia a un Eroe avversario. Quando viene eliminato, ottieni 2 risorse a scelta.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "partita",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per partita, assegna una Taglia a un Eroe avversario. Quando viene eliminato, ottieni 2 risorse a scelta."
+      },
+      "immagine": "card_Guerrieri_Edrik.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Edrik.jpeg",
+        "sha256": "177882e1f8be15f6aacd9589f429d8208bed8e5a8dc17c47d270af745c889d7a",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Edrik-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_ragnar",
+      "tipo": "eroe",
+      "nome": "Ragnar",
+      "categoria": "Guerrieri",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_ragnar_abilita",
+        "nome": "Rabbia Condivisa",
+        "testo_stampato": "Quando Ragnar colpisce un Mostro, infligge +1 Danno per ogni 2 Eroi alleati feriti ancora vivi, incluso sé stesso.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Quando Ragnar colpisce un Mostro, infligge +1 Danno per ogni 2 Eroi alleati feriti ancora vivi, incluso sé stesso."
+      },
+      "immagine": "card_Guerrieri_Ragnar.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Ragnar.jpeg",
+        "sha256": "1f33d6dba59fdf9bb3aedb5b3a1c72a027fc884d9f3a2888c8f3d68024880bbf",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Ragnar-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_drakor",
+      "tipo": "eroe",
+      "nome": "Drakor",
+      "categoria": "Guerrieri",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "guerrieri_drakor_abilita",
+        "nome": "Patto di Sangue",
+        "testo_stampato": "Una volta per turno, durante la Fase Abilità, Drakor può infliggere 1 Danno a sé stesso per infliggere 1 Danno a un Eroe avversario.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, durante la Fase Abilità, Drakor può infliggere 1 Danno a sé stesso per infliggere 1 Danno a un Eroe avversario."
+      },
+      "immagine": "card_Guerrieri_Drakor.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Drakor.jpeg",
+        "sha256": "e2c5cd2193dbf72372715289542c0734a53af5c7a05e995c2251a5478e1c2fd6",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Drakor-portrait.jpg"
+    },
+    {
+      "id": "guerrieri_garrek",
+      "tipo": "eroe",
+      "nome": "Garrek",
+      "categoria": "Guerrieri",
+      "vita_massima": 5,
+      "danno_base": 3,
+      "abilita": {
+        "id": "guerrieri_garrek_abilita",
+        "nome": "Tamburi di Guerra",
+        "testo_stampato": "Spendi 3 risorse: fino all’inizio del tuo prossimo turno, tutti i tuoi Eroi ottengono +1 Danno.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "non specificato",
+        "implementata": true,
+        "testo_ufficiale": "Spendi 3 risorse: fino all’inizio del tuo prossimo turno, tutti i tuoi Eroi ottengono +1 Danno. Utilizzi illimitati; bonus cumulabile."
+      },
+      "immagine": "card_Guerrieri_Garrek.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Guerrieri/Garrek.jpeg",
+        "sha256": "5019fd16c6a75fc1abe795b09fb1437251de277184a6357b2814bf7aca348587",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Guerrieri_Garrek-portrait.jpg"
+    },
+    {
+      "id": "maghi_elaris",
+      "tipo": "eroe",
+      "nome": "Elaris",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_elaris_abilita",
+        "nome": "Dardo Arcano",
+        "testo_stampato": "Una volta per turno, durante la Fase Abilità, puoi infliggere 1 Danno a un Eroe avversario a scelta.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, durante la Fase Abilità, puoi infliggere 1 Danno a un Eroe avversario a scelta."
+      },
+      "immagine": "card_Maghi_Elaris.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Elaris.jpeg",
+        "sha256": "255e4cc2a195c21845e556d86e2e3487f891b76f3635ea38e5a46d71a5c7fbd8",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Elaris-portrait.jpg"
+    },
+    {
+      "id": "maghi_therin",
+      "tipo": "eroe",
+      "nome": "Therin",
+      "categoria": "Maghi",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_therin_abilita",
+        "nome": "Manipolazione del Destino",
+        "testo_stampato": "Una volta per turno, scegli un Eroe alleato. Fino alla fine del turno, quell’Eroe può ritirare una volta il proprio dado d’attacco. Il secondo risultato sostituisce il precedente.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, scegli un Eroe alleato. Fino alla fine del turno, quell’Eroe può ritirare una volta il proprio dado d’attacco. Il secondo risultato sostituisce il precedente."
+      },
+      "immagine": "card_Maghi_Therin.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Therin.jpeg",
+        "sha256": "0629b7af03e0435c408be59c08d35425ec593aa613fca2b1748ffa2976124f98",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Therin-portrait.jpg"
+    },
+    {
+      "id": "maghi_malzar",
+      "tipo": "eroe",
+      "nome": "Malzar",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_malzar_abilita",
+        "nome": "Resurrezione Oscura",
+        "testo_stampato": "Durante la Fase Abilità, puoi sacrificare 3 Vita di Malzar per riportare in vita un Eroe dalla pila degli scarti e aggiungerlo al tuo party.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "non specificato",
+        "implementata": true,
+        "testo_ufficiale": "Durante la Fase Abilità, puoi sacrificare 3 Vita di Malzar per riportare in vita un Eroe dalla pila degli scarti e aggiungerlo al tuo party. L’Eroe torna con 1 Vita."
+      },
+      "immagine": "card_Maghi_Malzar.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Malzar.jpeg",
+        "sha256": "e0bfb3e9729e13882403f8271bede31a814a09d2dd16febc99e99fe1e271377c",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Malzar-portrait.jpg"
+    },
+    {
+      "id": "maghi_orin_il_veggente",
+      "tipo": "eroe",
+      "nome": "Orin il Veggente",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_orin_il_veggente_abilita",
+        "nome": "Premonizione",
+        "testo_stampato": "Durante la Fase Abilità, puoi guardare la prima carta di un mazzo Mostri senza rivelarla agli avversari.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "non specificato",
+        "implementata": true,
+        "testo_ufficiale": "Durante la Fase Abilità, puoi guardare la prima carta di un mazzo Mostri senza rivelarla agli avversari."
+      },
+      "immagine": "card_Maghi_Orin_il_Veggente.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Orin il Veggente.jpeg",
+        "sha256": "8c5ee6a8a944d891b1f9da4a4c5bc7a497178568d0cecec7a90f08cf0e2a5ad0",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Orin_il_Veggente-portrait.jpg"
+    },
+    {
+      "id": "maghi_vorian",
+      "tipo": "eroe",
+      "nome": "Vorian",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_vorian_abilita",
+        "nome": "Protezione Arcana",
+        "testo_stampato": "Una volta per combattimento, riduce di 1 il primo Danno subito da un Mostro.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, riduce di 1 il primo Danno subito da un Mostro."
+      },
+      "immagine": "card_Maghi_Vorian.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Vorian.jpeg",
+        "sha256": "41557846c5784e8b4b3cd1d367a9f081ea2716b34cbd3585ed6b5662a29c7b90",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Vorian-portrait.jpg"
+    },
+    {
+      "id": "maghi_miriel",
+      "tipo": "eroe",
+      "nome": "Miriel",
+      "categoria": "Maghi",
+      "vita_massima": 3,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_miriel_abilita",
+        "nome": "Guarigione Arcana",
+        "testo_stampato": "Una volta per turno, durante la Fase Abilità, puoi far recuperare 1 Vita a un Eroe alleato.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, durante la Fase Abilità, puoi far recuperare 1 Vita a un Eroe alleato."
+      },
+      "immagine": "card_Maghi_Miriel.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Miriel.jpeg",
+        "sha256": "d50b951df75bb766291cfd33cc3a45527c0d3907701904a91034234a1bda8e16",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Miriel-portrait.jpg"
+    },
+    {
+      "id": "maghi_azrael",
+      "tipo": "eroe",
+      "nome": "Azrael",
+      "categoria": "Maghi",
+      "vita_massima": 5,
+      "danno_base": 3,
+      "abilita": {
+        "id": "maghi_azrael_abilita",
+        "nome": "Assorbimento Vitale",
+        "testo_stampato": "Ogni volta che Azrael infligge Danno a un Mostro, recupera 1 Vita.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Ogni volta che Azrael infligge Danno a un Mostro, recupera 1 Vita."
+      },
+      "immagine": "card_Maghi_Azrael.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Azrael.jpeg",
+        "sha256": "7d180226e619e1f18556b4d1f377374b43dd57f24cc3e3e29feb7bd1b405fd0b",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Azrael-portrait.jpg"
+    },
+    {
+      "id": "maghi_belzar",
+      "tipo": "eroe",
+      "nome": "Belzar",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_belzar_abilita",
+        "nome": "Maledizione Riflessa",
+        "testo_stampato": "Una volta per partita, quando Belzar fallisce un attacco, puoi far subire i Danni del Mostro a un Eroe avversario a scelta, anziché a Belzar.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "partita",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per partita, quando Belzar fallisce un attacco, puoi far subire i Danni del Mostro a un Eroe avversario a scelta, anziché a Belzar."
+      },
+      "immagine": "card_Maghi_Belzar.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Belzar.jpeg",
+        "sha256": "97f32e79b00c1f613ef2bdcc4b1e8e55cb3fb1d20fdad66f9b7b05daf6eaff99",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Belzar-portrait.jpg"
+    },
+    {
+      "id": "maghi_selene",
+      "tipo": "eroe",
+      "nome": "Selene",
+      "categoria": "Maghi",
+      "vita_massima": 2,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_selene_abilita",
+        "nome": "Immunità Arcana",
+        "testo_stampato": "Una volta per partita, Selene può rendersi immune a qualsiasi effetto o Danno che la bersaglia.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "partita",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per partita, Selene può rendersi immune a qualsiasi effetto o Danno che la bersaglia."
+      },
+      "immagine": "card_Maghi_Selene.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Selene.jpeg",
+        "sha256": "34fe682edfdf9a6f39714afdcb6138a66ad0a3167bc843cc6423d7faf9099a43",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Selene-portrait.jpg"
+    },
+    {
+      "id": "maghi_malakar",
+      "tipo": "eroe",
+      "nome": "Malakar",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 3,
+      "abilita": {
+        "id": "maghi_malakar_abilita",
+        "nome": "Sacrificio Oscuro",
+        "testo_stampato": "Una volta per partita, puoi sacrificare Malakar per eliminare un Eroe avversario a scelta.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "partita",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per partita, puoi sacrificare Malakar per eliminare un Eroe avversario a scelta."
+      },
+      "immagine": "card_Maghi_Malakar.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Malakar.jpeg",
+        "sha256": "5da7988c8ceb1b5dc968be4cf5c6aa572d6458d48106b0c16705e652bc690bd8",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Malakar-portrait.jpg"
+    },
+    {
+      "id": "maghi_kaedris",
+      "tipo": "eroe",
+      "nome": "Kaedris",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 1,
+      "abilita": {
+        "id": "maghi_kaedris_abilita",
+        "nome": "Colpo Inevitabile",
+        "testo_stampato": "Una volta per combattimento, prima di un attacco, scegli un Eroe alleato. Se fallisce l’attacco, infligge comunque metà del proprio Danno al Mostro, arrotondato per difetto.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, prima di un attacco, scegli un Eroe alleato. Se fallisce l’attacco, infligge comunque metà del proprio Danno al Mostro, arrotondato per difetto."
+      },
+      "immagine": "card_Maghi_Kaedris.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Kaedris.jpeg",
+        "sha256": "88e28600e96ef8c6c73ef1ef3a25fcd8eea6f86332425671c5b288f94258d0f3",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Kaedris-portrait.jpg"
+    },
+    {
+      "id": "maghi_seraphis",
+      "tipo": "eroe",
+      "nome": "Seraphis",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_seraphis_abilita",
+        "nome": "Evocazione Arcana",
+        "testo_stampato": "Una volta per turno, puoi spendere 2 risorse Mana per pescare un Eroe da un mazzo Eroi a tua scelta.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi spendere 2 risorse Mana per pescare un Eroe da un mazzo Eroi a tua scelta."
+      },
+      "immagine": "card_Maghi_Seraphis.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Seraphis.jpeg",
+        "sha256": "799da694e1953aafee00fbc3b5167d9d2077b7d9b031071b86a4529e3f9eb4d1",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Seraphis-portrait.jpg"
+    },
+    {
+      "id": "maghi_ysolde",
+      "tipo": "eroe",
+      "nome": "Ysolde",
+      "categoria": "Maghi",
+      "vita_massima": 3,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_ysolde_abilita",
+        "nome": "Barriera Mistica",
+        "testo_stampato": "Una volta per combattimento, prima dell’inizio di un round, scegli un Eroe alleato. Per tutto il round, quell’Eroe non subisce Danni dagli attacchi del Mostro.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, prima dell’inizio di un round, scegli un Eroe alleato. Per tutto il round, quell’Eroe non subisce Danni dagli attacchi del Mostro."
+      },
+      "immagine": "card_Maghi_Ysolde.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Ysolde.jpeg",
+        "sha256": "ce41aaed4f99da2682cf5044c40a3fc663f688e5450bb261521288f7c36f15c0",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Ysolde-portrait.jpg"
+    },
+    {
+      "id": "maghi_nyriel",
+      "tipo": "eroe",
+      "nome": "Nyriel",
+      "categoria": "Maghi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "maghi_nyriel_abilita",
+        "nome": "Velo Improvviso",
+        "testo_stampato": "Una volta per turno, riduci di 1 il Danno inflitto a un tuo Eroe da un’abilità avversaria.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, riduci di 1 il Danno inflitto a un tuo Eroe da un’abilità avversaria."
+      },
+      "immagine": "card_Maghi_Nyriel.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Nyriel.jpeg",
+        "sha256": "0f2fa9ff23f14c84a8e33819618ac9efba95bc1dc989d651e602a38bf136c5a9",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Nyriel-portrait.jpg"
+    },
+    {
+      "id": "maghi_iskander",
+      "tipo": "eroe",
+      "nome": "Iskander",
+      "categoria": "Maghi",
+      "vita_massima": 3,
+      "danno_base": 3,
+      "abilita": {
+        "id": "maghi_iskander_abilita",
+        "nome": "Controincantesimo",
+        "testo_stampato": "Una volta per turno, puoi spendere 1 Vita di Iskander per annullare un’abilità di un Eroe avversario.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi spendere 1 Vita di Iskander per annullare un’abilità di un Eroe avversario."
+      },
+      "immagine": "card_Maghi_Iskander.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Maghi/Iskander.jpeg",
+        "sha256": "6c93c83de9256ba0d81e6c03388a4159287be94de289564f9a0e8d21f4c42a0e",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Maghi_Iskander-portrait.jpg"
+    },
+    {
+      "id": "ranger_rowan",
+      "tipo": "eroe",
+      "nome": "Rowan",
+      "categoria": "Ranger",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "ranger_rowan_abilita",
+        "nome": "Tiro di Riserva",
+        "testo_stampato": "Se fallisce un attacco, nel round successivo infligge automaticamente il suo Danno al Mostro.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Se fallisce un attacco, nel round successivo infligge automaticamente il suo Danno al Mostro. Svolge anche l’attacco normale."
+      },
+      "immagine": "card_Ranger_Rowan.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Rowan.jpeg",
+        "sha256": "0571364e619ef1f9e46a7bc2626e645af981cf1b7ca15c5fec6ff4ea052ce3dc",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Rowan-portrait.jpg"
+    },
+    {
+      "id": "ranger_elowen",
+      "tipo": "eroe",
+      "nome": "Elowen",
+      "categoria": "Ranger",
+      "vita_massima": 3,
+      "danno_base": 2,
+      "abilita": {
+        "id": "ranger_elowen_abilita",
+        "nome": "Pioggia di Frecce",
+        "testo_stampato": "Una volta per turno, puoi scartare fino a 2 risorse Freccia. Per ogni Freccia scartata, infliggi 1 Danno a un Eroe avversario.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi scartare fino a 2 risorse Freccia. Per ogni Freccia scartata, infliggi 1 Danno a un Eroe avversario."
+      },
+      "immagine": "card_Ranger_Elowen.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Elowen.jpeg",
+        "sha256": "c786d1a2b4691183976b03c52848a89f26d359a4f66c65118596814aa6addb29",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Elowen-portrait.jpg"
+    },
+    {
+      "id": "ranger_darian",
+      "tipo": "eroe",
+      "nome": "Darian",
+      "categoria": "Ranger",
+      "vita_massima": 5,
+      "danno_base": 3,
+      "abilita": {
+        "id": "ranger_darian_abilita",
+        "nome": "Colpo Devastante",
+        "testo_stampato": "Quando colpisce un Mostro con un 6 naturale, infligge +2 Danni.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Quando colpisce un Mostro con un 6 naturale, infligge +2 Danni."
+      },
+      "immagine": "card_Ranger_Darian.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Darian.jpeg",
+        "sha256": "1993c558fbc1048a9cf065167c761ae999b58d1b195064caa9e71c811723ab26",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Darian-portrait.jpg"
+    },
+    {
+      "id": "ranger_varek",
+      "tipo": "eroe",
+      "nome": "Varek",
+      "categoria": "Ranger",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "ranger_varek_abilita",
+        "nome": "Ritorsione",
+        "testo_stampato": "Quando un’abilità avversaria bersaglia un tuo Eroe, infliggi 1 Danno all’Eroe responsabile. Non annulla l’abilità.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "non specificato",
+        "implementata": true,
+        "testo_ufficiale": "Quando un’abilità avversaria bersaglia un tuo Eroe, infliggi 1 Danno all’Eroe responsabile. Non annulla l’abilità."
+      },
+      "immagine": "card_Ranger_Varek.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Varek.jpeg",
+        "sha256": "12e52ce7eea68120196238d49fceb36214fe9d009a9863ba6c8cd99b11d0c6ce",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Varek-portrait.jpg"
+    },
+    {
+      "id": "ranger_sylas",
+      "tipo": "eroe",
+      "nome": "Sylas",
+      "categoria": "Ranger",
+      "vita_massima": 3,
+      "danno_base": 3,
+      "abilita": {
+        "id": "ranger_sylas_abilita",
+        "nome": "Colpo Sleale",
+        "testo_stampato": "Una volta per combattimento avversario, quando un Eroe avversario fallisce un attacco, il Mostro gli infligge 1 Danno aggiuntivo.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "combattimento avversario",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento avversario, quando un Eroe avversario fallisce un attacco, il Mostro gli infligge 1 Danno aggiuntivo."
+      },
+      "immagine": "card_Ranger_Sylas.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Sylas.jpeg",
+        "sha256": "03495fdabe46cac4db912022bd645bc4c91478d7e3f7d7d9e30f30c01bc93071",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Sylas-portrait.jpg"
+    },
+    {
+      "id": "ranger_kestrel",
+      "tipo": "eroe",
+      "nome": "Kestrel",
+      "categoria": "Ranger",
+      "vita_massima": 4,
+      "danno_base": 3,
+      "abilita": {
+        "id": "ranger_kestrel_abilita",
+        "nome": "Tiro Disturbante",
+        "testo_stampato": "Una volta per combattimento avversario, puoi ridurre di 1 il risultato del dado d’attacco di un Eroe avversario (minimo 1).",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "combattimento avversario",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento avversario, puoi ridurre di 1 il risultato del dado d’attacco di un Eroe avversario (minimo 1)."
+      },
+      "immagine": "card_Ranger_Kestrel.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Kestrel.jpeg",
+        "sha256": "9642334d042931cd9e6fad9ce6ba850d0d956574597baf53569fdd2add59b13c",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Kestrel-portrait.jpg"
+    },
+    {
+      "id": "ranger_sable",
+      "tipo": "eroe",
+      "nome": "Sable",
+      "categoria": "Ranger",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "ranger_sable_abilita",
+        "nome": "Furto di Risorse",
+        "testo_stampato": "Una volta per turno, puoi subire 1 Danno per rubare 1 risorsa a un avversario.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi subire 1 Danno per rubare 1 risorsa a un avversario."
+      },
+      "immagine": "card_Ranger_Sable.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Sable.jpeg",
+        "sha256": "738aae50af1aab100e05a12b31a24e5f65a2df5277da948d07a3fc4125d67fc3",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Sable-portrait.jpg"
+    },
+    {
+      "id": "ranger_orin",
+      "tipo": "eroe",
+      "nome": "Orin",
+      "categoria": "Ranger",
+      "vita_massima": 4,
+      "danno_base": 4,
+      "abilita": {
+        "id": "ranger_orin_abilita",
+        "nome": "Tiro Implacabile",
+        "testo_stampato": "I suoi attacchi ignorano Debolezze e Resistenze dei Mostri.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "I suoi attacchi ignorano Debolezze e Resistenze dei Mostri."
+      },
+      "immagine": "card_Ranger_Orin.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Orin.jpeg",
+        "sha256": "7338b81af7903a51fcf369447e988d3149d2b157bbf6c126ecf7be0e78a24a5d",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Orin-portrait.jpg"
+    },
+    {
+      "id": "ranger_nyma",
+      "tipo": "eroe",
+      "nome": "Nyma",
+      "categoria": "Ranger",
+      "vita_massima": 3,
+      "danno_base": 1,
+      "abilita": {
+        "id": "ranger_nyma_abilita",
+        "nome": "Opportunista",
+        "testo_stampato": "Quando rinunci ad affrontare un Mostro, ottieni 1 risorsa casuale.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Quando rinunci ad affrontare un Mostro, ottieni 1 risorsa casuale."
+      },
+      "immagine": "card_Ranger_Nyma.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Nyma.jpeg",
+        "sha256": "9cbea35666ea88ca7a4b1e38aeeb53b36f74287dad55d63c1baf2db95e699db1",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Nyma-portrait.jpg"
+    },
+    {
+      "id": "ranger_fenril",
+      "tipo": "eroe",
+      "nome": "Fenril",
+      "categoria": "Ranger",
+      "vita_massima": 4,
+      "danno_base": 3,
+      "abilita": {
+        "id": "ranger_fenril_abilita",
+        "nome": "Bottino di Caccia",
+        "testo_stampato": "Ogni volta che infligge Danno a un Mostro, ottieni 1 risorsa casuale.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Ogni volta che infligge Danno a un Mostro, ottieni 1 risorsa casuale."
+      },
+      "immagine": "card_Ranger_Fenril.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Fenril.jpeg",
+        "sha256": "27b12e77f7b5c23b919e45d28e46a89fe412e0006413e7177d2d4d7035b07e1f",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Fenril-portrait.jpg"
+    },
+    {
+      "id": "ranger_talon",
+      "tipo": "eroe",
+      "nome": "Talon",
+      "categoria": "Ranger",
+      "vita_massima": 3,
+      "danno_base": 3,
+      "abilita": {
+        "id": "ranger_talon_abilita",
+        "nome": "Colpo Preciso",
+        "testo_stampato": "Una volta per combattimento, prima del suo attacco, può ottenere +1 al risultato del dado d’attacco (massimo 6).",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, prima del suo attacco, può ottenere +1 al risultato del dado d’attacco (massimo 6)."
+      },
+      "immagine": "card_Ranger_Talon.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Talon.jpeg",
+        "sha256": "8ae8c9e3015bce41236a041d6d9429216d593c0d5d37ca7a75c5304de73a22a7",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Talon-portrait.jpg"
+    },
+    {
+      "id": "ranger_rynn",
+      "tipo": "eroe",
+      "nome": "Rynn",
+      "categoria": "Ranger",
+      "vita_massima": 3,
+      "danno_base": 2,
+      "abilita": {
+        "id": "ranger_rynn_abilita",
+        "nome": "Ricognizione",
+        "testo_stampato": "Quando rinunci a un’Impresa, puoi guardare la prima carta di un mazzo Mostri senza rivelarla agli avversari.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "non specificato",
+        "implementata": true,
+        "testo_ufficiale": "Quando rinunci a un’Impresa, puoi guardare la prima carta di un mazzo Mostri senza rivelarla agli avversari."
+      },
+      "immagine": "card_Ranger_Rynn.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Rynn.jpeg",
+        "sha256": "6c831772d8a5c2b5dea984e3b6cbfa291f139d14f29bcd71acabf4592ae91a33",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Rynn-portrait.jpg"
+    },
+    {
+      "id": "ranger_mira",
+      "tipo": "eroe",
+      "nome": "Mira",
+      "categoria": "Ranger",
+      "vita_massima": 6,
+      "danno_base": 3,
+      "abilita": {
+        "id": "ranger_mira_abilita",
+        "nome": "Secondo Assalto",
+        "testo_stampato": "Una volta per combattimento, se fallisce un attacco e sopravvive, attacca immediatamente di nuovo.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, se fallisce un attacco e sopravvive, attacca immediatamente di nuovo."
+      },
+      "immagine": "card_Ranger_Mira.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Mira.jpeg",
+        "sha256": "b8a03d11b7efcbf55fd2711a7f9bb7e2cf1472097167ddd5c546e9fbb8bec77a",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Mira-portrait.jpg"
+    },
+    {
+      "id": "ranger_lysa",
+      "tipo": "eroe",
+      "nome": "Lysa",
+      "categoria": "Ranger",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "ranger_lysa_abilita",
+        "nome": "Seconda Possibilità",
+        "testo_stampato": "Una volta per combattimento, Lysa può permettere a un Eroe alleato di ritirare il proprio dado d’attacco. Il secondo risultato sostituisce il primo.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, Lysa può permettere a un Eroe alleato di ritirare il proprio dado d’attacco. Il secondo risultato sostituisce il primo."
+      },
+      "immagine": "card_Ranger_Lysa.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Lysa.jpeg",
+        "sha256": "133d2899fd49ab12fc4022e788feed70fa6f17f48ba153ceacd9c35ab786888b",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Lysa-portrait.jpg"
+    },
+    {
+      "id": "ranger_kairen",
+      "tipo": "eroe",
+      "nome": "Kairen",
+      "categoria": "Ranger",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "ranger_kairen_abilita",
+        "nome": "Istinto Protettivo",
+        "testo_stampato": "Una volta per combattimento, riduce di 1 il primo Danno inflitto da un Mostro a un Eroe alleato.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, riduce di 1 il primo Danno inflitto da un Mostro a un Eroe alleato."
+      },
+      "immagine": "card_Ranger_Kairen.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Ranger/Kairen.jpeg",
+        "sha256": "e38b913183907e1d10fc72a308e1df730f2a133095f023e9e04a5a865dcc512e",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Ranger_Kairen-portrait.jpg"
+    },
+    {
+      "id": "druidi_brann",
+      "tipo": "eroe",
+      "nome": "Brann",
+      "categoria": "Druidi",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_brann_abilita",
+        "nome": "Protezione della Natura",
+        "testo_stampato": "Una volta per combattimento, puoi ridurre di 1 il Danno inflitto dal Mostro a un Eroe alleato.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per combattimento, puoi ridurre di 1 il Danno inflitto dal Mostro a un Eroe alleato."
+      },
+      "immagine": "card_Druidi_Brann.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Brann.jpeg",
+        "sha256": "6b004e9428e97cd622e000cf8a23a7b709b01442f232a59aece0e4fa90140a10",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Brann-portrait.jpg"
+    },
+    {
+      "id": "druidi_eldwyn",
+      "tipo": "eroe",
+      "nome": "Eldwyn",
+      "categoria": "Druidi",
+      "vita_massima": 4,
+      "danno_base": 1,
+      "abilita": {
+        "id": "druidi_eldwyn_abilita",
+        "nome": "Rituale di Guarigione",
+        "testo_stampato": "Una volta per turno, scegli un Eroe alleato e lancia un D6: 1–3: nessun effetto. 4–5: recupera 1 Vita. 6: recupera 2 Vita.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, scegli un Eroe alleato e lancia un D6: 1–3: nessun effetto. 4–5: recupera 1 Vita. 6: recupera 2 Vita."
+      },
+      "immagine": "card_Druidi_Eldwyn.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Eldwyn.jpeg",
+        "sha256": "4acd14664b2b805eeeea4ce0e6a9b748c938cbde46e911aed021168c76568176",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Eldwyn-portrait.jpg"
+    },
+    {
+      "id": "druidi_oaken",
+      "tipo": "eroe",
+      "nome": "Oaken",
+      "categoria": "Druidi",
+      "vita_massima": 7,
+      "danno_base": 1,
+      "abilita": {
+        "id": "druidi_oaken_abilita",
+        "nome": "Guardiano Silvestre",
+        "testo_stampato": "Una volta per turno, quando un Eroe alleato subisce Danno da un’abilità avversaria, puoi far subire quel Danno a Oaken al suo posto.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, quando un Eroe alleato subisce Danno da un’abilità avversaria, puoi far subire quel Danno a Oaken al suo posto."
+      },
+      "immagine": "card_Druidi_Oaken.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Oaken.jpeg",
+        "sha256": "5206abd3582d25e898912311a968599f25be019f9d96d51c4231da6339f9cba6",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Oaken-portrait.jpg"
+    },
+    {
+      "id": "druidi_faelin",
+      "tipo": "eroe",
+      "nome": "Faelin",
+      "categoria": "Druidi",
+      "vita_massima": 6,
+      "danno_base": 1,
+      "abilita": {
+        "id": "druidi_faelin_abilita",
+        "nome": "Elisir Curativo",
+        "testo_stampato": "Una volta per turno, puoi spendere 1 risorsa Pozione per far recuperare 2 Vita a un Eroe alleato a scelta.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi spendere 1 risorsa Pozione per far recuperare 2 Vita a un Eroe alleato a scelta."
+      },
+      "immagine": "card_Druidi_Faelin.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Faelin.jpeg",
+        "sha256": "ae12fa6d99c381c9b8dee2047fe619de049b43e4d6acae2cd2b149bffb9dcfbf",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Faelin-portrait.jpg"
+    },
+    {
+      "id": "druidi_neris",
+      "tipo": "eroe",
+      "nome": "Neris",
+      "categoria": "Druidi",
+      "vita_massima": 5,
+      "danno_base": 1,
+      "abilita": {
+        "id": "druidi_neris_abilita",
+        "nome": "Sacrificio Rituale",
+        "testo_stampato": "Una volta per turno, puoi sacrificare 1 Vita di un Eroe alleato per ottenere 2 risorse casuali.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi sacrificare 1 Vita di un Eroe alleato per ottenere 2 risorse casuali."
+      },
+      "immagine": "card_Druidi_Neris.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Neris.jpeg",
+        "sha256": "112c9e6bd7bdff52bf9c710502ec3163fe6e3fdf8c85ba82b3780fda99592125",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Neris-portrait.jpg"
+    },
+    {
+      "id": "druidi_maelis",
+      "tipo": "eroe",
+      "nome": "Maelis",
+      "categoria": "Druidi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_maelis_abilita",
+        "nome": "Dono della Natura",
+        "testo_stampato": "Una volta per turno, ottieni 1 risorsa casuale.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, ottieni 1 risorsa casuale."
+      },
+      "immagine": "card_Druidi_Maelis.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Maelis.jpeg",
+        "sha256": "9c03d85c9b15c80e1280a3eac64a21114c808436451c0444bf1661bdf4bcf4c3",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Maelis-portrait.jpg"
+    },
+    {
+      "id": "druidi_lyra",
+      "tipo": "eroe",
+      "nome": "Lyra",
+      "categoria": "Druidi",
+      "vita_massima": 3,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_lyra_abilita",
+        "nome": "Benedizione della Natura",
+        "testo_stampato": "Ogni volta che ottieni risorse casuali, puoi scegliere quali risorse ricevere.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Ogni volta che ottieni risorse casuali, puoi scegliere quali risorse ricevere."
+      },
+      "immagine": "card_Druidi_Lyra.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Lyra.jpeg",
+        "sha256": "08e7634fcebe8797d80b00391f1ae88908f07af3f2cc1e0e8d819e2c328cbb10",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Lyra-portrait.jpg"
+    },
+    {
+      "id": "druidi_aelira",
+      "tipo": "eroe",
+      "nome": "Aelira",
+      "categoria": "Druidi",
+      "vita_massima": 5,
+      "danno_base": 1,
+      "abilita": {
+        "id": "druidi_aelira_abilita",
+        "nome": "Rinascita Collettiva",
+        "testo_stampato": "Una volta per turno, puoi spendere 3 risorse qualsiasi per far recuperare 1 Vita a tutti i tuoi Eroi.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi spendere 3 risorse qualsiasi per far recuperare 1 Vita a tutti i tuoi Eroi."
+      },
+      "immagine": "card_Druidi_Aelira.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Aelira.jpeg",
+        "sha256": "cacbadaa6760fd3c6ec74c186126a9d505cdd42a48812f946fb9b013c0a6a29e",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Aelira-portrait.jpg"
+    },
+    {
+      "id": "druidi_sylvara",
+      "tipo": "eroe",
+      "nome": "Sylvara",
+      "categoria": "Druidi",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_sylvara_abilita",
+        "nome": "Purificazione Naturale",
+        "testo_stampato": "Spendi 2 risorse: annulla un attacco del Mostro contro un Eroe alleato. (1 volta per combattimento).",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "combattimento",
+        "implementata": true,
+        "testo_ufficiale": "Spendi 2 risorse: annulla un attacco del Mostro contro un Eroe alleato. (1 volta per combattimento)."
+      },
+      "immagine": "card_Druidi_Sylvara.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Sylvara.jpeg",
+        "sha256": "96832b40628f09bd90e9c146499975cb64701b5d2f0d6886c9f30b21f41ace22",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Sylvara-portrait.jpg"
+    },
+    {
+      "id": "druidi_tharion",
+      "tipo": "eroe",
+      "nome": "Tharion",
+      "categoria": "Druidi",
+      "vita_massima": 5,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_tharion_abilita",
+        "nome": "Tocco Rigenerante",
+        "testo_stampato": "Ogni volta che Tharion infligge Danno a un Mostro, puoi far recuperare 1 Vita a un altro Eroe alleato.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Ogni volta che Tharion infligge Danno a un Mostro, puoi far recuperare 1 Vita a un altro Eroe alleato."
+      },
+      "immagine": "card_Druidi_Tharion.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Tharion.jpeg",
+        "sha256": "10ebcdb04e2cd51a0a1409b4127664ad6fa779bdab533a1ecc0854f448abdcac",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Tharion-portrait.jpg"
+    },
+    {
+      "id": "druidi_vespera",
+      "tipo": "eroe",
+      "nome": "Vespera",
+      "categoria": "Druidi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_vespera_abilita",
+        "nome": "Benedizione del Reclutamento",
+        "testo_stampato": "Ogni volta che recluti un Druido, ottieni 1 risorsa casuale.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Ogni volta che recluti un Druido, ottieni 1 risorsa casuale."
+      },
+      "immagine": "card_Druidi_Vespera.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Vespera.jpeg",
+        "sha256": "ccafef9ee7f91422b1e921b36b5e99ad1d8d3878a2308daecd67aa0e77f950af",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Vespera-portrait.jpg"
+    },
+    {
+      "id": "druidi_thalwen",
+      "tipo": "eroe",
+      "nome": "Thalwen",
+      "categoria": "Druidi",
+      "vita_massima": 6,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_thalwen_abilita",
+        "nome": "Trasmutazione Naturale",
+        "testo_stampato": "Una volta per turno, puoi spendere 2 risorse qualsiasi per ottenere 2 risorse a tua scelta.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi spendere 2 risorse qualsiasi per ottenere 2 risorse a tua scelta."
+      },
+      "immagine": "card_Druidi_Thalwen.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Thalwen.jpeg",
+        "sha256": "b5192939370db3cfa226fc788b6a552fccac0ec812fcba0a80584e25f759f3ca",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Thalwen-portrait.jpg"
+    },
+    {
+      "id": "druidi_myriel",
+      "tipo": "eroe",
+      "nome": "Myriel",
+      "categoria": "Druidi",
+      "vita_massima": 4,
+      "danno_base": 1,
+      "abilita": {
+        "id": "druidi_myriel_abilita",
+        "nome": "Ultima Speranza",
+        "testo_stampato": "Una volta per partita, quando un tuo Eroe sta per essere eliminato da un attacco del Mostro, puoi salvarlo lasciandolo a 1 Vita.",
+        "tipo_proposto": "reattiva",
+        "limite_stampato": "partita",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per partita, quando un tuo Eroe sta per essere eliminato da un attacco del Mostro, puoi salvarlo lasciandolo a 1 Vita."
+      },
+      "immagine": "card_Druidi_Myriel.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Myriel.jpeg",
+        "sha256": "98c7ac0ae6c6f1c6f5f8ada745a79a2eb4824237ac9fa3890f5ab66ec00b2e61",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Myriel-portrait.jpg"
+    },
+    {
+      "id": "druidi_eldarion",
+      "tipo": "eroe",
+      "nome": "Eldarion",
+      "categoria": "Druidi",
+      "vita_massima": 7,
+      "danno_base": 1,
+      "abilita": {
+        "id": "druidi_eldarion_abilita",
+        "nome": "Equilibrio Vitale",
+        "testo_stampato": "Durante il combattimento, ogni volta che uno o più tuoi Eroi recuperano Vita, infliggi 1 Danno automatico al Mostro per ogni Eroe curato.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true,
+        "testo_ufficiale": "Durante il combattimento, ogni volta che uno o più tuoi Eroi recuperano Vita, infliggi 1 Danno automatico al Mostro per ogni Eroe curato."
+      },
+      "immagine": "card_Druidi_Eldarion.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Eldarion.jpeg",
+        "sha256": "b6a06a6967eb3bfc111090f9a16478ebdef576483004a965418c648226992814",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Eldarion-portrait.jpg"
+    },
+    {
+      "id": "druidi_morwen",
+      "tipo": "eroe",
+      "nome": "Morwen",
+      "categoria": "Druidi",
+      "vita_massima": 4,
+      "danno_base": 2,
+      "abilita": {
+        "id": "druidi_morwen_abilita",
+        "nome": "Legame di Sangue",
+        "testo_stampato": "Una volta per turno, puoi infliggere 1 Danno a un tuo Eroe per infliggere 1 Danno a un Eroe avversario a scelta.",
+        "tipo_proposto": "attiva",
+        "limite_stampato": "turno",
+        "implementata": true,
+        "testo_ufficiale": "Una volta per turno, puoi infliggere 1 Danno a un tuo Eroe per infliggere 1 Danno a un Eroe avversario a scelta."
+      },
+      "immagine": "card_Druidi_Morwen.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_60_Eroi(1).zip",
+        "file": "Druidi/Morwen.jpeg",
+        "sha256": "6d03635fd4dfaa88416458f621dbec288d20dbca726e9271a70caf2fed07cac1",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ritratto": "card_Druidi_Morwen-portrait.jpg"
+    }
+  ],
+  "mostri": [
+    {
+      "id": "base_il_mangiacadaveri",
+      "tipo": "mostro",
+      "nome": "Il Mangiacadaveri",
+      "categoria": "Base",
+      "vita_massima": 12,
+      "danno_base": 2,
+      "abilita": {
+        "id": "base_il_mangiacadaveri_abilita",
+        "nome": "Presenza opprimente",
+        "testo_stampato": "Il primo Eroe che attacca ogni round subisce −1 al risultato del dado.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "round",
+        "implementata": true
+      },
+      "immagine": "card_Base_Il_Mangiacadaveri.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Base/Il Mangiacadaveri.jpeg",
+        "sha256": "59799606d91a4aec395221ede64f61f917c51a061386591d7a0c882aa5deff21",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 1,
+        "risorse_casuali": 2
+      },
+      "debolezze": [
+        "Maghi"
+      ],
+      "resistenze": [
+        "Guerrieri"
+      ],
+      "ritratto": "card_Base_Il_Mangiacadaveri-portrait.jpg"
+    },
+    {
+      "id": "base_il_divoraradici",
+      "tipo": "mostro",
+      "nome": "Il Divoraradici",
+      "categoria": "Base",
+      "vita_massima": 13,
+      "danno_base": 2,
+      "abilita": {
+        "id": "base_il_divoraradici_abilita",
+        "nome": "Corteccia maledetta",
+        "testo_stampato": "La prima volta in ogni round che subisce danni, li riduce di 1.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "round",
+        "implementata": true
+      },
+      "immagine": "card_Base_Il_Divoraradici.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Base/Il Divoraradici.jpeg",
+        "sha256": "a09136ef56234404b05a24bfe1fe3595c87d6008ed00b443184c3b1a0c944dbd",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 1,
+        "risorse_casuali": 2
+      },
+      "debolezze": [
+        "Ranger"
+      ],
+      "resistenze": [
+        "Maghi"
+      ],
+      "ritratto": "card_Base_Il_Divoraradici-portrait.jpg"
+    },
+    {
+      "id": "base_il_custode_delle_fosse",
+      "tipo": "mostro",
+      "nome": "Il Custode delle Fosse",
+      "categoria": "Base",
+      "vita_massima": 11,
+      "danno_base": 2,
+      "abilita": {
+        "id": "base_il_custode_delle_fosse_abilita",
+        "nome": "Stretta sepolcrale",
+        "testo_stampato": "La prima volta in ogni round che un Eroe fallisce un attacco, subisce 1 danno aggiuntivo.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "round",
+        "implementata": true
+      },
+      "immagine": "card_Base_Il_Custode_delle_Fosse.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Base/Il Custode delle Fosse.jpeg",
+        "sha256": "b5581378c7302e4ef18f8a723c2a295dce92797651bff30123ccb5a525e02e5b",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 1,
+        "risorse_casuali": 2
+      },
+      "debolezze": [
+        "Guerrieri"
+      ],
+      "resistenze": [
+        "Druidi"
+      ],
+      "ritratto": "card_Base_Il_Custode_delle_Fosse-portrait.jpg"
+    },
+    {
+      "id": "base_la_sanguisuga",
+      "tipo": "mostro",
+      "nome": "La Sanguisuga",
+      "categoria": "Base",
+      "vita_massima": 15,
+      "danno_base": 1,
+      "abilita": {
+        "id": "base_la_sanguisuga_abilita",
+        "nome": "Suzione vitale",
+        "testo_stampato": "Quando la Sanguisuga infligge danni, recupera 1 Vita.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Base_La_Sanguisuga.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Base/La Sanguisuga.jpeg",
+        "sha256": "882267e6d127c82c7b8d1c47dff3b3700c96eabbfc5f382ba857588fbf3e0d59",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 1,
+        "risorse_casuali": 2
+      },
+      "debolezze": [
+        "Druidi"
+      ],
+      "resistenze": [
+        "Guerrieri"
+      ],
+      "ritratto": "card_Base_La_Sanguisuga-portrait.jpg"
+    },
+    {
+      "id": "base_il_mietiossa",
+      "tipo": "mostro",
+      "nome": "Il Mietiossa",
+      "categoria": "Base",
+      "vita_massima": 11,
+      "danno_base": 3,
+      "abilita": {
+        "id": "base_il_mietiossa_abilita",
+        "nome": "Istinto predatorio",
+        "testo_stampato": "Quando un Eroe ottiene un pareggio contro il Mietiossa, subisce 1 danno.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Base_Il_Mietiossa.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Base/Il Mietiossa.jpeg",
+        "sha256": "d9b3206629d059cbbaa0ff9afe47aca574b56aebe8a07ce0fc897519d302ce6d",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 1,
+        "risorse_casuali": 2
+      },
+      "debolezze": [
+        "Maghi"
+      ],
+      "resistenze": [
+        "Ranger"
+      ],
+      "ritratto": "card_Base_Il_Mietiossa-portrait.jpg"
+    },
+    {
+      "id": "intermedi_il_divoratore_di_anime",
+      "tipo": "mostro",
+      "nome": "Il Divoratore di Anime",
+      "categoria": "Intermedi",
+      "vita_massima": 20,
+      "danno_base": 2,
+      "abilita": {
+        "id": "intermedi_il_divoratore_di_anime_abilita",
+        "nome": "Fame insaziabile",
+        "testo_stampato": "Ogni volta che uccide un Eroe, recupera 5 Vita, senza superare il massimo di 20.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Intermedi_Il_Divoratore_di_Anime.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Intermedi/Il Divoratore di Anime.jpeg",
+        "sha256": "c84382eafa76e65068ac635f86899e79d8004196b570cd200036a1fdcc3e7904",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 2,
+        "risorse_casuali": 4
+      },
+      "debolezze": [
+        "Ranger"
+      ],
+      "resistenze": [
+        "Druidi"
+      ],
+      "ritratto": "card_Intermedi_Il_Divoratore_di_Anime-portrait.jpg"
+    },
+    {
+      "id": "intermedi_il_carnefice_cieco",
+      "tipo": "mostro",
+      "nome": "Il Carnefice Cieco",
+      "categoria": "Intermedi",
+      "vita_massima": 20,
+      "danno_base": 1,
+      "abilita": {
+        "id": "intermedi_il_carnefice_cieco_abilita",
+        "nome": "Furia crescente",
+        "testo_stampato": "Alla fine di ogni round, il suo Danno aumenta di 1, senza limite.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Intermedi_Il_Carnefice_Cieco.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Intermedi/Il Carnefice Cieco.jpeg",
+        "sha256": "78780f42afff0a8bd330eb12d1853763bd64287d7e4cb5c401374061a38f2c1b",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 2,
+        "risorse_casuali": 4
+      },
+      "debolezze": [
+        "Druidi"
+      ],
+      "resistenze": [
+        "Maghi"
+      ],
+      "ritratto": "card_Intermedi_Il_Carnefice_Cieco-portrait.jpg"
+    },
+    {
+      "id": "intermedi_la_dama_del_pozzo",
+      "tipo": "mostro",
+      "nome": "La Dama del Pozzo",
+      "categoria": "Intermedi",
+      "vita_massima": 19,
+      "danno_base": 2,
+      "abilita": {
+        "id": "intermedi_la_dama_del_pozzo_abilita",
+        "nome": "Richiamo del Pozzo",
+        "testo_stampato": "All’inizio di ogni round, l’Eroe vivente con meno Attacco non può attaccare per quel round, ma può subire danni. In caso di parità, sceglie il giocatore.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "round",
+        "implementata": true
+      },
+      "immagine": "card_Intermedi_La_Dama_del_Pozzo.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Intermedi/La Dama del Pozzo.jpeg",
+        "sha256": "aad802da3038aa4219fadf83aed4ed5eca236daf441938782b0b47ccf9179cc2",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 2,
+        "risorse_casuali": 4
+      },
+      "debolezze": [
+        "Druidi"
+      ],
+      "resistenze": [
+        "Ranger"
+      ],
+      "ritratto": "card_Intermedi_La_Dama_del_Pozzo-portrait.jpg"
+    },
+    {
+      "id": "intermedi_il_campanaro",
+      "tipo": "mostro",
+      "nome": "Il Campanaro",
+      "categoria": "Intermedi",
+      "vita_massima": 20,
+      "danno_base": 2,
+      "abilita": {
+        "id": "intermedi_il_campanaro_abilita",
+        "nome": "Rintocco funebre",
+        "testo_stampato": "Alla fine di ogni round, infligge 1 Danno all’Eroe vivente con meno Vita. In caso di parità, scegli il giocatore.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "round",
+        "implementata": true
+      },
+      "immagine": "card_Intermedi_Il_Campanaro.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Intermedi/Il Campanaro.jpeg",
+        "sha256": "98b8acd6fb063d52462e9616497d72025595c54e6bddc2b044917cb780c68c99",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 2,
+        "risorse_casuali": 4
+      },
+      "debolezze": [
+        "Maghi"
+      ],
+      "resistenze": [
+        "Guerrieri"
+      ],
+      "ritratto": "card_Intermedi_Il_Campanaro-portrait.jpg"
+    },
+    {
+      "id": "intermedi_il_flagellatore",
+      "tipo": "mostro",
+      "nome": "Il Flagellatore",
+      "categoria": "Intermedi",
+      "vita_massima": 19,
+      "danno_base": 2,
+      "abilita": {
+        "id": "intermedi_il_flagellatore_abilita",
+        "nome": "Flagello",
+        "testo_stampato": "Ogni volta che il Flagellatore attacca, infligge 1 Danno all’Eroe che ha attaccato immediatamente prima.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Intermedi_Il_Flagellatore.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Intermedi/Il Flagellatore.jpeg",
+        "sha256": "1917602fb78af482bdb1185032b794b00e834b451c509163902aad42f0f181f1",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 2,
+        "risorse_casuali": 4
+      },
+      "debolezze": [
+        "Guerrieri"
+      ],
+      "resistenze": [
+        "Ranger"
+      ],
+      "ritratto": "card_Intermedi_Il_Flagellatore-portrait.jpg"
+    },
+    {
+      "id": "elite_la_madre_della_pestilenza",
+      "tipo": "mostro",
+      "nome": "La Madre della Pestilenza",
+      "categoria": "Elite",
+      "vita_massima": 24,
+      "danno_base": 3,
+      "abilita": {
+        "id": "elite_la_madre_della_pestilenza_abilita",
+        "nome": "Contagio Debilitante",
+        "testo_stampato": "Ogni volta che un Eroe subisce danni dalla Madre della Pestilenza, riceve −1 al risultato del dado del suo prossimo attacco.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Elite_La_Madre_della_Pestilenza.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Elite/La Madre della Pestilenza.jpeg",
+        "sha256": "cdf6f73ce354d928fea5d37e37fa93e59ba6ec8e44c90a584aa78d6b8dc1440f",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 3,
+        "risorse_casuali": 6
+      },
+      "debolezze": [
+        "Ranger"
+      ],
+      "resistenze": [
+        "Guerrieri"
+      ],
+      "simbolo_grafico": "biohazard verde",
+      "ritratto": "card_Elite_La_Madre_della_Pestilenza-portrait.jpg"
+    },
+    {
+      "id": "elite_il_lich_eterno",
+      "tipo": "mostro",
+      "nome": "Il Lich Eterno",
+      "categoria": "Elite",
+      "vita_massima": 23,
+      "danno_base": 3,
+      "abilita": {
+        "id": "elite_il_lich_eterno_abilita",
+        "nome": "Rigenerazione Necrotica",
+        "testo_stampato": "Recupera 1 Vita ogni volta che attacca, fino al massimo di 23.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Elite_Il_Lich_Eterno.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Elite/Il Lich Eterno.jpeg",
+        "sha256": "dedd215d64e8ebbdce17ac31feaf3b3f19b41eca9cb95ea74c90cea4f937aaf1",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 3,
+        "risorse_casuali": 6
+      },
+      "debolezze": [
+        "Druidi"
+      ],
+      "resistenze": [
+        "Ranger"
+      ],
+      "simbolo_grafico": "fiamma viola",
+      "ritratto": "card_Elite_Il_Lich_Eterno-portrait.jpg"
+    },
+    {
+      "id": "elite_il_divoratore_degli_abissi",
+      "tipo": "mostro",
+      "nome": "Il Divoratore degli Abissi",
+      "categoria": "Elite",
+      "vita_massima": 25,
+      "danno_base": 3,
+      "abilita": {
+        "id": "elite_il_divoratore_degli_abissi_abilita",
+        "nome": "Corazza Abissale",
+        "testo_stampato": "Durante tutti i round pari (2, 4, 6, 8…), subisce la metà dei danni per difetto.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Elite_Il_Divoratore_degli_Abissi.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Elite/Il Divoratore degli Abissi.jpeg",
+        "sha256": "05058d2ca928ccaf8924b2fb662c454fcfd3271cd35c27ce9fac0b75cff92ab6",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 3,
+        "risorse_casuali": 6
+      },
+      "debolezze": [
+        "Ranger"
+      ],
+      "resistenze": [
+        "Maghi"
+      ],
+      "simbolo_grafico": "tentacoli azzurri",
+      "ritratto": "card_Elite_Il_Divoratore_degli_Abissi-portrait.jpg"
+    },
+    {
+      "id": "elite_il_colosso_del_vuoto",
+      "tipo": "mostro",
+      "nome": "Il Colosso del Vuoto",
+      "categoria": "Elite",
+      "vita_massima": 25,
+      "danno_base": 3,
+      "abilita": {
+        "id": "elite_il_colosso_del_vuoto_abilita",
+        "nome": "Furia del Vuoto",
+        "testo_stampato": "Durante ogni round dispari (1, 3, 5, 7…), il Colosso infligge +1 Danno. Nei round pari ritorna al suo Danno base di 3.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Elite_Il_Colosso_del_Vuoto.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Elite/Il Colosso del Vuoto.jpeg",
+        "sha256": "a486ab06d914c267d68a10abaea930897fc92bec904c5ba1c131b443dfcb2163",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 3,
+        "risorse_casuali": 6
+      },
+      "debolezze": [
+        "Maghi"
+      ],
+      "resistenze": [
+        "Druidi"
+      ],
+      "simbolo_grafico": "vortice viola",
+      "ritratto": "card_Elite_Il_Colosso_del_Vuoto-portrait.jpg"
+    },
+    {
+      "id": "elite_il_sovrano_delle_ceneri",
+      "tipo": "mostro",
+      "nome": "Il Sovrano delle Ceneri",
+      "categoria": "Elite",
+      "vita_massima": 28,
+      "danno_base": 3,
+      "abilita": {
+        "id": "elite_il_sovrano_delle_ceneri_abilita",
+        "nome": "Cuore Incandescente",
+        "testo_stampato": "Alla fine di ogni round, infligge 1 Danno ai 3 Eroi con più Vita.",
+        "tipo_proposto": "passiva",
+        "limite_stampato": "nessuno",
+        "implementata": true
+      },
+      "immagine": "card_Elite_Il_Sovrano_delle_Ceneri.jpeg",
+      "fonte": {
+        "archivio": "HEROES_AND_MONSTERS_15_Mostri(1).zip",
+        "file": "Elite/Il Sovrano delle Ceneri.jpeg",
+        "sha256": "bfab0a69456db8b760e7f78f7755fdd7e692ca2d2db989812adf16b029beb18f",
+        "dimensioni_px": [
+          1064,
+          1478
+        ]
+      },
+      "ricompensa": {
+        "punti_vittoria": 3,
+        "risorse_casuali": 6
+      },
+      "debolezze": [
+        "Guerrieri"
+      ],
+      "resistenze": [
+        "Maghi"
+      ],
+      "simbolo_grafico": "fiamma arancione",
+      "ritratto": "card_Elite_Il_Sovrano_delle_Ceneri-portrait.jpg"
+    }
+  ],
+  "note_da_verificare": [
+    {
+      "id": "playtest",
+      "stato": "da collaudare",
+      "testo": "Verificare le interazioni rare tra abilità, ordine delle protezioni, CPU e Safari. Difesa D6 e requisiti 3/4/5 mantenuti dal prototipo."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+HEROES AND MONSTERS — 1.0 BETA OFFLINE (24 novembre 2026)
+
+PUBBLICAZIONE SU GITHUB PAGES
+1. Estrai lo ZIP. Nel repository GitHub crea o apri un repository dedicato.
+2. Carica il CONTENUTO dello ZIP, non lo ZIP stesso. index.html, data.js, engine.js,
+   app.js, style.css e tutte le immagini devono essere al livello principale.
+   Anche da iPhone si possono selezionare i file; il sito GitHub
+   limita gli upload web per singola operazione. Non rinominare i file. Caricare in gruppi di massimo 100 file, tutti nella root.
+3. Settings > Pages > Build and deployment > Deploy from a branch > main > /(root) > Save.
+4. Apri l'indirizzo Pages fornito da GitHub in Safari, ruota lo schermo in orizzontale.
+   Puoi aggiungerlo alla schermata Home. Una volta caricati i file dal service worker,
+   l'app è progettata per funzionare offline. Non servono Firebase, chiavi API o server.
+
+CONTENUTO
+- 60 Eroi e 15 Mostri, con illustrazioni originali ricodificate JPEG per ridurre il peso.
+- Motore con implementazione delle 60 abilità Eroe e 15 abilità Mostro, risorse, bonus
+  archetipi, affinità, dadi, reclutamento, reazioni e scelte, scarti, ritirata e vittoria.
+- Partita contro CPU euristica, senza lettura delle carte nascoste (salvo abilità di
+  consultazione). Salvataggio automatico nel browser dopo ogni azione conclusa.
+- Menu basato sulla grafica fornita, plancia adattata all'interazione touch; indicatori
+  affinità, carte ingrandibili, animazioni essenziali, archivio, registro, impostazioni.
+- Audio sintetico originale e vibrazione se supportata dal dispositivo.
+
+REGOLE E ASSUNZIONI DI IMPLEMENTAZIONE
+- Divoratore di Anime 20 Vita, Danno 2, recupera 5 al massimo 20; 2 punti vittoria.
+- Garrek illimitato, bonus cumulabile; Malzar rianima con 1 Vita; Rowan danno di
+  riserva e attacco normale nel round seguente. Affinità fisse e bilanciate, +1/-1
+  al danno degli attacchi (minimo 0); danno automatico fisso di Eldarion senza affinità.
+- Difesa D6, requisiti 3/4/5 Eroi vivi, massimo 8 Eroi per party, primo a 6 punti.
+  Questi requisiti e la difesa sono quelli adottati nel prototipo precedente e
+  restano da confermare se il regolamento finale differisce.
+- I costi in Vita/sacrifici sono distinti da attacchi e danni ordinari. Gli effetti
+  specifici di Elowen, Belzar e Malakar prevalgono sul limite generale ai danni diretti.
+- Le riduzioni automatiche si applicano prima delle protezioni facoltative. Le
+  reazioni avversarie non innescano altre reazioni. Le scelte di parità dei Mostri
+  sono mostrate al giocatore attivo. Le interazioni meno frequenti richiedono playtest.
+- La CPU è una prima euristica, non un'IA ottimizzata; valuta party, risorse, mostri
+  visibili e pericolo. Le abilità possono richiedere finestre di scelta automatiche.
+- La versione 1.0 beta non include il multiplayer online.
+
+COLLAUDO
+Eseguire da terminale: node engine.test.js
+40 situazioni/controlli automatici passati, tra cui gli effetti delle 20 abilità
+attive, tutti i 15 Mostri in un round, affinità, Garrek/Malzar/Rowan, ritirata e
+salvataggio. Controllata anche la sintassi JavaScript. Non è un collaudo esaustivo
+combinatorio di tutte le abilità. L'ambiente di test blocca la navigazione locale
+in Chromium: non è stato possibile verificare l'interfaccia nel browser né la
+PWA offline o Safari/iPhone. Questa build è destinata a prova su GitHub Pages,
+non ancora a congelamento come versione stabile. Segnalare eventuali bug.
